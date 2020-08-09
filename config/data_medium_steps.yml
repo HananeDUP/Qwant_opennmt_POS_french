@@ -1,0 +1,21 @@
+model_dir: run/
+
+data:
+  train_features_file: ./dataset/train_valid/wiki_train_words_bitext_large_2.txt
+  train_labels_file: ./dataset/train_valid/wiki_train_tags_bitext_large_2.txt
+  eval_features_file: ./dataset/train_valid/wiki_valid_words_bitext_large_2.txt
+  eval_labels_file: ./dataset/train_valid/wiki_valid_tags_bitext_large_2.txt
+  source_1_vocabulary: ./dataset/train_valid/wiki-src-train-vocab.txt
+  source_2_vocabulary: ./dataset/train_valid/wiki-src-train-tkt-vocab.txt
+  target_vocabulary: ./dataset/train_valid/wiki-tgt-train-vocab.txt
+
+train:
+  max_step: 30000
+  save_summary_steps: 500
+
+eval:
+  external_evaluators: bleu
+  export_on_best: loss
+
+params:
+  learning_rate: 0.01
